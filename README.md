@@ -1,6 +1,6 @@
 # TrueNorth
 
-True North is an open, human-scale framework for secure digital collaboration.
+True North is an open human-scale framework for secure digital collaboration.
 It focuses on strong identity, clear boundaries and vendor-neutral architecture.
 So organizations can run their core digital services with confidence and autonomy.
 
