@@ -5,3 +5,5 @@ secure access to multiple core services through a single, central, MFA-protected
 
 It applies strict verification at the point of access, followed by smooth, 
 policy-driven reauthentication during use without local accounts or vendor lock-in.
+
+© 2025 Nidax / True North

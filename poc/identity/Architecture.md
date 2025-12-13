@@ -10,3 +10,5 @@ The architecture is intentionally minimal to highlight trust
 boundaries, dependency direction and audit flows.
 
 A visual diagram will be added once the PoC implementation begins.
+
+© 2025 Nidax / True North

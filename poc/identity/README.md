@@ -7,3 +7,5 @@ provide access to multiple services while remaining understandable, auditable an
 
 This PoC is intentionally minimal and scoped.
 It is not a production setup.
+
+© 2025 Nidax / True North

@@ -8,3 +8,5 @@ Security is treated as a shared foundation not a specialist add-on.
 Technology should remain understandable, auditable and evolvable over time.
 
 True North values openness, autonomy and long-term responsibility over speed or hype.
+
+© 2025 Nidax / True North

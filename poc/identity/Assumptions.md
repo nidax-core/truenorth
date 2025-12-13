@@ -8,3 +8,5 @@
 - Identity is a hard dependency (fail-closed)
 - Auditability is more important than user experience
 - This PoC favors clarity over completeness
+
+© 2025 Nidax / True North

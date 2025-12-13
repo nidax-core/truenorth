@@ -21,3 +21,5 @@
 - Automated user provisioning or lifecycle management
 - UX polish or theming
 - Production hardening
+
+© 2025 Nidax / True North
