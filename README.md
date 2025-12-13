@@ -1,6 +1,8 @@
 # TrueNorth
-
-True North is an open human-scale framework for secure digital collaboration.
+True North is an initiative by Nidax
+The name "True North" is used as a project name and concept. 
+Use of the name does not imply permission for branding or commercial use.
+It is an open human-scale framework for secure digital collaboration.
 It focuses on strong identity, clear boundaries and vendor-neutral architecture.
 So organizations can run their core digital services with confidence and autonomy.
 
