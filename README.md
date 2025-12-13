@@ -48,6 +48,6 @@ Any commercial activity should respect that spirit.
 ## Status
 
 This project is under active exploration.
-Expect clarity before speed, and structure before scale.
+Expect clarity before speed and structure before scale.
 
 © 2025 Nidax / True North
