@@ -28,8 +28,8 @@ flowchart LR
     NC -->|OIDC redirect| IdP
     ZU -->|OIDC redirect| IdP
 
-    IdP -->|OIDC token\n(MFA enforced)| NC
-    IdP -->|OIDC token\n(MFA enforced)| ZU
+    IdP -->|OIDC token with MFA enforced| NC
+    IdP -->|OIDC token with MFA enforced| ZU
 ```
 
 © 2025 Nidax / True North
