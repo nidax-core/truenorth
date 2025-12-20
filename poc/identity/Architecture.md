@@ -21,11 +21,13 @@ dependency direction and audit flows.
 flowchart LR
     User((User))
     IdP["IdentityGuard (Keycloak)"]
+    MFA["MFA Enforcement"]
     NC["Nextcloud"]
 
     User -->|Access request| NC
     NC -->|OIDC redirect| IdP
-    IdP -->|Authenticate user (MFA)| IdP
+    IdP --> MFA
+    MFA -->|User authenticated| IdP
     IdP -->|OIDC token| NC
 ```
 
