@@ -20,16 +20,12 @@ flowchart LR
     User((User))
     IdP["IdentityGuard (Keycloak)"]
     NC["Nextcloud"]
-    ZU["Zulip"]
+    
 
     User -->|Access request| NC
-    User -->|Access request| ZU
-
     NC -->|OIDC redirect| IdP
-    ZU -->|OIDC redirect| IdP
-
     IdP -->|OIDC token with MFA enforced| NC
-    IdP -->|OIDC token with MFA enforced| ZU
+    
 ```
 
 © 2025 Nidax / True North
