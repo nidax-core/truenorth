@@ -18,9 +18,9 @@ dependency direction and audit flows.
 ```mermaid
 flowchart LR
     User((User))
-    IdP[IdentityGuard<br/>(Keycloak)]
-    NC[Nextcloud]
-    ZU[Zulip]
+    IdP["IdentityGuard (Keycloak)"]
+    NC["Nextcloud"]
+    ZU["Zulip"]
 
     User -->|Access request| NC
     User -->|Access request| ZU
@@ -28,8 +28,8 @@ flowchart LR
     NC -->|OIDC redirect| IdP
     ZU -->|OIDC redirect| IdP
 
-    IdP -->|MFA enforced<br/>OIDC token| NC
-    IdP -->|MFA enforced<br/>OIDC token| ZU
+    IdP -->|OIDC token\n(MFA enforced)| NC
+    IdP -->|OIDC token\n(MFA enforced)| ZU
 ```
 
 © 2025 Nidax / True North
