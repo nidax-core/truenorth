@@ -15,17 +15,32 @@ dependency direction and audit flows.
 
 ## Authentication & Trust Flow
 
+## Primary Authentication Flow (Nextcloud)
+
 ```mermaid
 flowchart LR
     User((User))
     IdP["IdentityGuard (Keycloak)"]
     NC["Nextcloud"]
-    
 
     User -->|Access request| NC
     NC -->|OIDC redirect| IdP
-    IdP -->|OIDC token with MFA enforced| NC
-    
+    IdP -->|Authenticate user (MFA)| IdP
+    IdP -->|OIDC token| NC
+```
+
+## Single Sign-On Flow (Zulip)
+
+```mermaid
+flowchart LR
+    User((User))
+    IdP["IdentityGuard (Keycloak)"]
+    ZU["Zulip"]
+
+    User -->|Access request| ZU
+    ZU -->|OIDC redirect| IdP
+    IdP -->|Existing session| IdP
+    IdP -->|OIDC token| ZU
 ```
 
 © 2025 Nidax / True North
