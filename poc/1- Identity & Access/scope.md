@@ -11,6 +11,8 @@
 - Authentication and authorization audit logs
 - Fail-closed behavior when identity is unavailable
 - Clear documentation of choices and trade-offs
+- LDAP directory access as a read-only projection of centrally managed identities
+- Authentication and lookup support for system-level integrations
 
 ## Explicitly excluded
 - Mattermost as a client  
@@ -26,6 +28,9 @@
 - Automated user provisioning or lifecycle management
 - UX polish or theming
 - Production hardening
+- LDAP as a primary identity store
+- User or group lifecycle management via LDAP
+- Write access from consuming systems
 
 
 © 2025 Nidax / True North

@@ -68,6 +68,25 @@ and Mattermost was therefore excluded.
 
 ---
 
+## LDAP is supported as a directory interface not as an identity authority
+
+**Decision**  
+LDAP is supported as a read-only directory interface for system-level integrations.
+
+**Rationale**
+- Many infrastructure and legacy systems require LDAP
+- OIDC/SAML are not universally supported
+- Central identity must remain protocol-agnostic
+
+**Implication**
+- The IdP remains the single source of truth
+- LDAP exposes a scoped projection of identity data
+- No lifecycle management or write access is permitted via LDAP
+- Systems consuming LDAP must not assume ownership of identity
+
+This prevents legacy-compatible integrations from introducing lock-in or identity drift.
+
+
 ## Why a single realm and minimal roles
 
 The PoC uses a single realm and minimal role definitions to:
