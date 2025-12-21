@@ -127,3 +127,5 @@ A validated workspace model where:
 - Growth does not force architectural redesign
 
 This PoC serves as a reference for production deployments and future domain expansions.
+
+See [pitfalls.md](./pitfalls.md) for real-world issues encountered during this PoC.
