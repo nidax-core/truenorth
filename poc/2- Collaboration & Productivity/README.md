@@ -9,49 +9,6 @@ The goal of this PoC is not feature completeness, but to demonstrate a **coheren
 
 ---
 
-## Scope
-
-This domain covers the tools people use to **work together**:
-
-### Communication
-- Email (internal and external)
-- Chat and team messaging
-- Audio / video meetings
-
-### Collaboration
-- File storage and sharing
-- Real-time document editing
-- Comments and lightweight workflows
-
-### Presence & interaction
-- Availability and presence indicators
-- Ad-hoc and scheduled meetings
-- Shared workspaces for teams and projects
-
-Typical components in this domain:
-- A workspace platform (e.g. Nextcloud)
-- A stateless document editing engine (e.g. ONLYOFFICE Docs)
-- A chat and team communication tool
-- A video conferencing solution
-- A mail stack (SMTP/IMAP + client)
-
----
-
-## Explicitly Out of Scope
-
-This PoC deliberately excludes:
-
-- Identity providers, authentication or SSO  
-  (handled in *Domain 1 — Identity & Access*)
-- Analytics, BI tooling, or live database connectivity  
-  (handled in *Domain 8 — Analytics & Insight*)
-- Endpoint agents, EDR, or classic enterprise DLP tooling
-- Infrastructure-level concerns (compute, networking, backups)
-
-These exclusions are intentional to prevent domain overlap and hidden coupling.
-
----
-
 ## Design Principles
 
 ### Default does not mean mandatory
