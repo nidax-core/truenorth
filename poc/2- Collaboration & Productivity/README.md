@@ -2,7 +2,7 @@
 
 This Proof of Concept describes how the **Collaboration & Productivity** domain is implemented within the True North framework.
 
-This domain represents the **day-to-day digital workspace**: communication, files, meetings, and collaborative work.  
+This domain represents the **day-to-day digital workspace**: communication, files, meetings and collaborative work.  
 It is where users spend most of their time, where clarity, predictability and trust matter most.
 
 The goal of this PoC is not feature completeness, but to demonstrate a **coherent, human-scale workspace** built from well-defined components with clear responsibilities.
