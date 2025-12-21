@@ -1,0 +1,162 @@
+# Architectural Decisions — Collaboration & Productivity
+
+This document records the key architectural decisions for the Collaboration & Productivity domain within True North.
+
+The purpose is not to justify tooling choices, but to document **why certain patterns are accepted or rejected** to preserve clarity, replaceability and long-term autonomy.
+
+---
+
+## D1 — Workspace is a surface, not a system of record
+
+**Decision**  
+The workspace is treated as a user-facing surface that orchestrates collaboration tools.
+
+**Rationale**
+- Reduces coupling between tools and core domains
+- Allows replacement without redesign
+- Keeps identity and data ownership external
+
+**Implication**
+- Files, calendars and collaboration are surfaced here
+- Identity, analytics and security controls live elsewhere
+
+---
+
+## D2 — Identity is never owned by collaboration tools
+
+**Decision**  
+No collaboration component may act as an identity provider.
+
+**Rationale**
+- Identity is a critical dependency and must be tool-agnostic
+- Prevents lock-in through user databases
+- Simplifies audits and migrations
+
+**Implication**
+- Workspace integrates with Domain 1 (Identity & Access)
+- Editors, chat and meeting tools never authenticate users directly
+
+---
+
+## D3 — Nextcloud is a strong default, not a mandatory dependency
+
+**Decision**  
+A unified workspace (e.g. Nextcloud) is recommended as a default, but not required.
+
+**Rationale**
+- Reduces complexity for most organizations
+- Provides a coherent user experience
+- Avoids ideological dependency on a single platform
+
+**Implication**
+- All capabilities must remain replaceable
+- Alternatives must integrate via open protocols
+
+---
+
+## D4 — Document editors are stateless services
+
+**Decision**  
+Document editing engines (e.g. ONLYOFFICE Docs) are treated as stateless processors.
+
+**Rationale**
+- Editors should not own files or users
+- Prevents duplication of identity and permissions
+- Enables future replacement
+
+**Implication**
+- Machine-to-machine trust (e.g. JWT) is used
+- Editors do not persist user or file state
+
+---
+
+## D5 — Machine trust does not replace user authentication
+
+**Decision**  
+JWT or similar mechanisms are used for service integration, not for user login.
+
+**Rationale**
+- Separates system trust from human identity
+- Avoids misuse of integration tokens
+- Preserves a clean security model
+
+**Implication**
+- User authentication always flows through Identity domain
+- Editors and meeting tools remain identity-agnostic
+
+---
+
+## D6 — Email remains a first-class, standards-based channel
+
+**Decision**  
+Email is retained as a core communication mechanism.
+
+**Rationale**
+- Universally interoperable
+- Legally and operationally critical
+- Not replaceable by chat systems
+
+**Implication**
+- Clients and mail handling are decoupled
+- IMAP/SMTP/CalDAV/CardDAV are mandatory
+- Workspace may surface mail, but does not own it
+
+---
+
+## D7 — Meetings are utilities, not platforms
+
+**Decision**  
+Audio and video conferencing tools are treated as replaceable utilities.
+
+**Rationale**
+- Prevents platform lock-in
+- Avoids data gravity around meetings
+- Keeps scheduling and identity centralized
+
+**Implication**
+- Meetings are scheduled via the workspace calendar
+- Tools may be swapped without breaking workflows
+
+---
+
+## D8 — Collaboration tools are not analytics engines
+
+**Decision**  
+Spreadsheets and documents are not used for live data access or analytics.
+
+**Rationale**
+- Prevents data leakage
+- Preserves auditability
+- Keeps sources of truth centralized
+
+**Implication**
+- Analytics belongs in a separate domain
+- Collaboration tools consume outputs, not raw data
+
+---
+
+## D9 — Defaults must always have an exit path
+
+**Decision**  
+Every default choice must have a documented and feasible replacement path.
+
+**Rationale**
+- Open source alone does not guarantee autonomy
+- Organizational needs change over time
+- Trust requires a visible exit
+
+**Implication**
+- Migration paths are considered at design time
+- No component becomes indispensable by accident
+
+---
+
+## Summary
+
+These decisions ensure that the Collaboration & Productivity domain remains:
+- Understandable
+- Replaceable
+- Auditable
+- Resilient to vendor or ecosystem changes
+
+They are intentionally conservative and prioritize long-term operational clarity over feature density.
