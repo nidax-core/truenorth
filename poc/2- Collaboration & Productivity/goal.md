@@ -18,6 +18,21 @@ Enable people to:
 
 ---
 
+## Proof-of-concept intent
+
+Proofs of concept in this domain exist to validate **architectural boundaries**, not to optimize tools.
+
+They are used to demonstrate that:
+- Identity remains authoritative across collaboration channels
+- Components consume identity rather than redefining it
+- Users can switch clients or services without lifecycle impact
+- Disabling identity access reliably revokes collaboration access
+
+A PoC is considered successful when it clarifies responsibilities, exposes pitfalls, and strengthens operator understanding.
+
+---
+
+
 ## What success looks like
 
 This domain is successful when:

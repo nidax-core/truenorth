@@ -59,7 +59,7 @@ Example implementation:
 
 ### Communication services
 
-#### Email
+### Email
 Email consists of two independent components:
 
 - **Mail clients**  
@@ -74,7 +74,73 @@ The workspace may surface email functionality but does not replace mail infrastr
 
 ---
 
-#### Chat and team collaboration
+Email delivery is treated as an external trust domain.
+
+Responsibilities are explicitly split as follows:
+
+- **Identity & Access (Domain 1)**
+  - User lifecycle (create, disable, delete)
+  - Authentication source (passwords, MFA where applicable)
+  - Group and role ownership
+
+- **Mail handling**
+  - Message transport and storage
+  - Spam and malware filtering
+  - Protocol-level authentication (IMAP/SMTP)
+
+- **Workspace**
+  - Optional surfacing of mail (webmail, links, notifications)
+  - No ownership of mail data or delivery logic
+
+Design constraints:
+- Mail systems must not become identity authorities
+- User accounts must be lifecycle-managed externally
+- Standard protocols (IMAP/SMTP/CalDAV/CardDAV) remain available
+- Provider lock-in must be avoidable through data export
+
+### Email identity and lifecycle integration
+
+Email integrates with the Identity & Access domain but does not replace it.
+
+#### Account lifecycle
+1. User is created in the Identity domain
+2. Identity provisions or authorizes a corresponding mail account
+3. User accesses mail via standard clients or webmail
+4. Identity changes (role change, disable, delete) propagate to mail access
+
+Mail systems must not maintain independent user lifecycles.
+
+---
+
+#### Authentication model
+- Primary authentication authority: Identity domain
+- Mail protocols may authenticate via:
+  - Federated authentication (preferred)
+  - Credentials synchronized from Identity (acceptable)
+- Multi-factor authentication is enforced at the identity or access layer where supported
+
+Mail infrastructure does not define password policy or MFA logic independently.
+
+---
+
+#### Offboarding flow
+1. User is disabled in Identity
+2. Mail access is revoked
+3. Mail data is retained or archived according to policy
+4. Account removal is auditable and reversible where legally required
+
+
+#### Email access and delivery flow
+1. User authenticates via Identity domain
+2. User accesses mail via client or web interface
+3. Mail handling system processes delivery and storage
+4. Access and authentication events are logged
+5. Workspace may surface mail without intercepting delivery
+
+Email remains interoperable, auditable and replaceable across providers
+
+
+### Chat and team collaboration
 Chat tools provide asynchronous communication and team coordination.
 
 Characteristics:
@@ -87,7 +153,7 @@ Example implementation:
 
 ---
 
-#### Online meetings
+### Online meetings
 Meeting tools provide real-time audio and video communication.
 
 Characteristics:
@@ -100,7 +166,7 @@ Example implementation:
 
 ---
 
-## Identity and trust boundaries
+### Identity and trust boundaries
 
 - User identity is managed exclusively in **Domain 1 — Identity & Access**
 - Workspace and collaboration tools consume identity via standard protocols
@@ -129,7 +195,7 @@ This separation ensures that collaboration tools remain replaceable and auditabl
 
 ---
 
-## Architectural guarantees
+### Architectural guarantees
 
 This domain guarantees that:
 - No collaboration tool becomes a system of record for identity

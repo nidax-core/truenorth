@@ -151,6 +151,44 @@ Every default choice must have a documented and feasible replacement path.
 
 ---
 
+## D10 — Email delivery is a bounded trust domain with multiple valid models
+
+**Decision**  
+Email delivery is treated as an external trust domain with clearly defined boundaries.  
+True North does not mandate a single email hosting model, but defines a decision matrix and integration constraints.
+
+**Rationale**
+- Email is critical infrastructure with high operational and security cost
+- Full self-hosting often introduces disproportionate complexity and risk
+- Different organizations have different trust, compliance and capacity constraints
+- Long-term autonomy is preserved through clear boundaries, not ideological purity
+
+**Accepted delivery models**
+
+| Model | Description | Accepted | Default |
+|------|------------|----------|---------|
+| Fully self-hosted | Organization runs SMTP/IMAP stack end-to-end | Yes (exceptional) | No |
+| Managed EU provider | External provider handles mail delivery & storage | Yes | **Yes** |
+| Hybrid | Inbound/outbound filtering external, identity & policy internal | Yes | No |
+
+**Design constraints (mandatory)**
+- Identity remains owned by the Identity & Access domain
+- Mail infrastructure must integrate with external identity (no local user silos)
+- IMAP/SMTP and standard protocols remain available
+- Data export and provider exit must be feasible
+- Authentication and access events must be auditable
+
+**Explicit non-goals**
+- True North does not prescribe a specific mail server stack
+- Mail delivery internals are not part of the reference architecture
+- Feature parity with hyperscaler mail platforms is not a goal
+
+**Implication**
+- Email is interoperable, replaceable, and governed — but not reinvented
+- The workspace may surface mail functionality without owning mail delivery
+- Responsibility boundaries between Identity, Workspace and Mail are explicit
+
+
 ## Summary
 
 These decisions ensure that the Collaboration & Productivity domain remains:
