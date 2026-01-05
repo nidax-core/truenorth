@@ -1,23 +1,29 @@
 # Scope
 
 ## In scope
-- Central identity service (IdentityGuard)
-- Mandatory MFA at initial authentication
+- Central identity domain (IdentityGuard)
+- Separation of identity substrate and identity broker
+- Directory service (LDAP) as the authoritative identity substrate
+- Identity broker enforcing authentication flows and access policies
+- Mandatory MFA where supported by protocol and client
 - Single Sign-On to:
   - Nextcloud
   - Zulip
-- Centralized role-based access control
-- No local user accounts on services
+- Centralized role and group definitions
+- No local user accounts on consuming services
 - Authentication and authorization audit logs
-- Fail-closed behavior when identity is unavailable
-- Clear documentation of choices and trade-offs
-- LDAP directory access as a read-only projection of centrally managed identities
+- Fail-closed behavior when identity interfaces are unavailable
 - Authentication and lookup support for system-level integrations
+- Clear documentation of architectural choices and trade-offs
+
+---
 
 ## Explicitly excluded
 - Mattermost as a client  
   Reason: OpenID Connect support requires a paid edition, which conflicts
   with the vendor-neutral and open-by-default goals of this PoC
+
+---
 
 ## Out of scope
 - High availability or clustering
@@ -28,9 +34,8 @@
 - Automated user provisioning or lifecycle management
 - UX polish or theming
 - Production hardening
-- LDAP as a primary identity store
-- User or group lifecycle management via LDAP
-- Write access from consuming systems
+- Policy definition or authentication flows implemented in LDAP
+- User or group lifecycle management initiated from consuming systems
+- Write access to the directory from consuming services
 
-
-© 2025 Nidax / True North
+© 2026 Nidax / True North

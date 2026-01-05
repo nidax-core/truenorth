@@ -1,17 +1,18 @@
 # Architecture
 
-This Proof of Concept uses a simple hub-and-spoke model.
+This Proof of Concept uses a layered hub-and-spoke model.
 
-IdentityGuard (Keycloak) acts as the central authority for authentication
-and authorization. All connected services delegate identity and access
-decisions to this central layer using OpenID Connect.
+IdentityGuard is composed of two distinct layers:
 
-Nextcloud and Zulip function as independent service providers (spokes).
-They do not manage user identities themselves and do not trust each other;
-they only trust IdentityGuard.
+- A directory service acting as the authoritative identity substrate
+- An identity broker (Keycloak) responsible for authentication, authorization and policy enforcement
+
+All connected services delegate identity and access decisions either to the identity broker (OIDC/SAML)
+or directly to the directory, depending on protocol capabilities.
 
 The architecture is intentionally minimal to highlight trust boundaries,
 dependency direction and audit flows.
+
 
 ## Authentication & Trust Flow
 
@@ -45,38 +46,61 @@ flowchart LR
     IdP -->|OIDC token| ZU
 ```
 
-## Directory access (LDAP projection)
+## Mail Authentication & Trust Flow
 
-In addition to modern identity protocols, the Identity & Access domain exposes a **directory interface via LDAP** to support systems that cannot consume OIDC or SAML.
+```mermaid
+flowchart LR
+    User((User))
+    Client["Mail Client (Thunderbird)"]
+    LDAP["Identity Substrate (LDAP)"]
+    Mail["Mail Server (IMAP / SMTP)"]
 
-### Purpose
-LDAP is provided as a **read-only projection** of centrally managed identities for system-level integrations.
+    User -->|Credentials| Client
+    Client -->|IMAP/SMTP auth| Mail
+    Mail -->|Bind / auth check| LDAP
+    LDAP -->|Auth result| Mail
+    Mail -->|Access granted / denied| Client
+```
 
-Typical consumers:
-- Mail servers (e.g. SMTP/IMAP authentication)
-- Unix/PAM authentication
-- Legacy or infrastructure tooling
-- Address book lookups
+## Identity substrate (Directory / LDAP)
 
-### Architectural role
+The Identity & Access domain is grounded in a directory service that acts as the
+authoritative identity substrate.
 
-IdentityGuard (Keycloak) remains the **authoritative identity source**.
+### Responsibilities
+- User and group storage
+- Credential storage
+- Identity lifecycle (enable, disable, delete)
+- Attribute ownership
 
-- User lifecycle is managed in the IdP
-- Groups and attributes are defined centrally
-- LDAP exposes a scoped view of this data
+This layer is the single source of truth for identity.
 
-### Constraints
-- LDAP is not a source of truth
-- No user or group lifecycle is managed via LDAP
-- No write-back from consuming systems
-- Access is scoped and audited
+---
 
-### Trust boundary
-LDAP is treated as an **integration interface**, not as an identity provider.
+## Identity broker and policy layer (Keycloak)
 
-This ensures compatibility with legacy systems without compromising the autonomy or replaceability of the identity layer.
+An identity broker consumes the directory to provide higher-level identity services.
+
+Responsibilities:
+- Single Sign-On
+- Multi-factor authentication
+- Authentication flows
+- Protocol translation (OIDC, SAML)
+- Centralized access policy enforcement
+
+The broker never owns identity data.
+It derives all user, group and credential information from the identity substrate.
+
+## Identity consumption model
+
+Different classes of systems consume identity through different interfaces:
+
+- Web-based applications (Nextcloud, Zulip) authenticate via the identity broker using OIDC
+- Non-web and system-level services (mail, VPN, PAM) authenticate directly against the directory
+- No consuming system manages its own user lifecycle
+
+This model ensures consistent identity enforcement across both modern and legacy protocols.
 
 
 
-© 2025 Nidax / True North
+© 2026 Nidax / True North

@@ -1,9 +1,12 @@
 # Proof of Concept Goal
 
 This Proof of Concept demonstrates that True North can provide users with
-secure access to multiple core services through a single, central, MFA-protected and auditable identity.
+secure access to multiple core services through a single central and auditable identity domain.
 
-It applies strict verification at the point of access, followed by smooth, 
-policy-driven reauthentication during use without local accounts or vendor lock-in.
+Authentication and access enforcement are applied consistently across services,
+using protocol-appropriate mechanisms while maintaining a unified identity lifecycle.
 
-© 2025 Nidax / True North
+Where supported, access is protected by multi-factor authentication and centralized policy enforcement.
+No service manages local user accounts or credentials and no vendor-specific identity lock-in is introduced.
+
+© 2026 Nidax / True North

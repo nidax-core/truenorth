@@ -2,22 +2,60 @@
 
 This Proof of Concept explores identity as the foundational layer of True North.
 
-It demonstrates how a single central identity can securely and transparently
-provide access to multiple services while remaining understandable, auditable and vendor-neutral.
+It demonstrates how a single, centralized and auditable identity domain can
+provide secure access to multiple services while remaining understandable,
+transparent and vendor-neutral.
 
-In this PoC, Keycloak acts as the identity provider, with Nextcloud and Zulip
-configured as OpenID Connect clients.
+---
 
-In addition to modern authentication protocols (OIDC/SAML), the Identity & Access domain provides a directory interface via LDAP for systems that require it.
-LDAP is treated as a compatibility interface for infrastructure and legacy tooling not as a primary identity authority.
+## Scope and focus
+
+The PoC is centered around **IdentityGuard**, which is implemented as a layered system:
+
+- A directory service acting as the authoritative identity substrate
+- An identity broker (Keycloak) responsible for authentication flows, MFA and policy enforcement
+
+This separation allows identity to be consumed consistently across both modern
+web-based services and non-web or system-level integrations.
+
+---
+
+## Demonstrated integrations
+
+- **Nextcloud** and **Zulip** authenticate via OpenID Connect against the identity broker
+- **Non-web protocols** (e.g. mail, VPN, PAM) authenticate directly against the directory
+
+No connected service manages its own user lifecycle or credentials.
+
+---
+
+## Architectural intent
+
+This Proof of Concept demonstrates that:
+
+- Identity is centralized but protocol-aware
+- Authentication mechanisms are chosen based on protocol capabilities, not ideology
+- User lifecycle is enforced consistently across all services
+- Vendor lock-in is avoided by design, not by abstraction
+
+---
+
+## Non-goals
 
 This PoC is intentionally minimal and tightly scoped.
-It is not a production setup and makes no claims about scalability, availability or long-term operations.
-It is based on a working lab setup but intentionally omits implementation details to keep the focus on architecture and design decisions. 
 
-## Known Pitfalls
+It does not attempt to address:
+- High availability or clustering
+- Automated provisioning or deprovisioning
+- Backup, recovery or operational hardening
+- Performance or scalability guarantees
 
-See [pitfalls.md](./pitfalls.md) for real-world issues encountered during this PoC.
+The focus is on architectural correctness, not production readiness.
 
+---
 
-© 2025 Nidax / True North
+## Known pitfalls
+
+See [pitfalls.md](./pitfalls.md) for real-world issues encountered and lessons learned during this PoC.
+
+© 2026 Nidax / True North
