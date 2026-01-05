@@ -50,4 +50,4 @@ Any commercial activity should respect that spirit.
 This project is under active exploration.
 Expect clarity before speed and structure before scale.
 
-© 2025 Nidax / True North
+© 2026 Nidax / True North
