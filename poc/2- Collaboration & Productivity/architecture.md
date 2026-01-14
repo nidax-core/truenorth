@@ -115,7 +115,7 @@ Mail systems must not maintain independent user lifecycles.
 #### Authentication model
 - Primary authentication authority: Identity domain
 - Mail protocols may authenticate via:
-  - Federated authentication (preferred)
+  - Directory-backed authentication (LDAP) (preferred)
   - Credentials synchronized from Identity (acceptable)
 - Multi-factor authentication is enforced at the identity or access layer where supported
 
@@ -131,11 +131,12 @@ Mail infrastructure does not define password policy or MFA logic independently.
 
 
 #### Email access and delivery flow
-1. User authenticates via Identity domain
-2. User accesses mail via client or web interface
-3. Mail handling system processes delivery and storage
-4. Access and authentication events are logged
-5. Workspace may surface mail without intercepting delivery
+1. User authenticates to mail service
+2. Mail service validates against Identity (directory/LDAP)
+3. User accesses mail via client or web interface
+4. Mail handling system processes delivery and storage
+5. Access and authentication events are logged
+6. Workspace may surface mail without intercepting delivery
 
 Email remains interoperable, auditable and replaceable across providers
 
