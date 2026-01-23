@@ -128,4 +128,21 @@ A validated workspace model where:
 
 This PoC serves as a reference for production deployments and future domain expansions.
 
-See [pitfalls.md](./pitfalls.md) for real-world issues encountered during this PoC.
+## Status
+Validated in lab
+
+## Validation
+- [X] Lab validation performed
+- [X] Runbooks tested end-to-end
+- [X] Evidence captured (commands/logs/screens)
+
+---
+
+## Documents
+
+- Goal: [goal.md](./goal.md)
+- Scope: [scope.md](./scope.md)
+- Architecture: [architecture.md](./architecture.md)
+- Decisions: [decisions.md](./decisions.md)
+- Pitfalls: [pitfalls.md](./pitfalls.md)
+- Self Hosting Mail: [self-hosted-mail](./self-hosted-mail.md)
