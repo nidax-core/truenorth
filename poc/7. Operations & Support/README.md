@@ -35,6 +35,16 @@ Every service and alert must map to an owner and a response path.
 
 ---
 
+## Status
+Draft (theory-only). This PoC is currently documentation-only and has not been validated in practice yet.
+
+## Validation
+- [ ] Lab validation performed
+- [ ] Runbooks tested end-to-end
+- [ ] Evidence captured (commands/logs/screens)
+
+---
+
 ## Documents
 
 - Goal: [goal.md](./goal.md)
