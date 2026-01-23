@@ -40,8 +40,8 @@ Each domain can have one of the following status and is mentioned in each README
 
 | Domain | Name | Status | Link |
 |---:|---|---|---|
-| 1 | Identity & Access | Validated in lab | [PoC README](./poc/1-%20Identity%20%26%20Access/README.md) |
-| 2 | Collaboration & Productivity | Validated in lab | [PoC README](./poc/2-%20Collaboration%20%26%20Productivity/README.md) |
+| 1 | Identity & Access | Validated in lab | [PoC README](./poc/1.%20Identity%20%26%20Access/README.md) |
+| 2 | Collaboration & Productivity | Validated in lab | [PoC README](./poc/2.%20Collaboration%20%26%20Productivity/README.md) |
 | 3 | Compute & Hosting | Draft (theory-only) | [PoC README](./poc/3.%20Compute%20%26%20Hosting/README.md) |
 | 4 | Security, Observability & Compliance | Draft (theory-only) | [PoC README](./poc/4.%20Security,%20Observability%20%26%20Compliance/README.md) |
 | 5 | Configuration & Automation | Draft (theory-only) | [PoC README](./poc/5.%20Configuration%20%26%20Automation/README.md) |
