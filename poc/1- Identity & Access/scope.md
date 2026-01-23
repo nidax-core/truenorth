@@ -38,4 +38,3 @@
 - User or group lifecycle management initiated from consuming systems
 - Write access to the directory from consuming services
 
-© 2026 Nidax / True North

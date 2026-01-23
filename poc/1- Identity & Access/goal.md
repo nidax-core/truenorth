@@ -9,4 +9,4 @@ using protocol-appropriate mechanisms while maintaining a unified identity lifec
 Where supported, access is protected by multi-factor authentication and centralized policy enforcement.
 No service manages local user accounts or credentials and no vendor-specific identity lock-in is introduced.
 
-© 2026 Nidax / True North
+

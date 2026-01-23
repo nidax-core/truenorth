@@ -126,4 +126,3 @@ This Proof of Concept deliberately excludes:
 These concerns are valid but addressing them would obscure the core identity
 model this PoC aims to validate.
 
-© 2026 Nidax / True North

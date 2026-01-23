@@ -146,3 +146,5 @@ Validated in lab
 - Decisions: [decisions.md](./decisions.md)
 - Pitfalls: [pitfalls.md](./pitfalls.md)
 - Self Hosting Mail: [self-hosted-mail](./self-hosted-mail.md)
+
+2026 Nidax / True North

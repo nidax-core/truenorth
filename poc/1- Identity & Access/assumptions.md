@@ -13,4 +13,3 @@
 - Auditability and transparency are prioritized over user experience
 - This PoC favors clarity and explicit design choices over completeness
 
-© 2026 Nidax / True North

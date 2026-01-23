@@ -73,4 +73,4 @@ Validated in lab
 - Decisions: [decisions.md](./decisions.md)
 - Pitfalls: [pitfalls.md](./pitfalls.md)
 
-
+2026 Nidax / True North

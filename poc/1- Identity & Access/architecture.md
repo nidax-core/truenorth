@@ -100,7 +100,3 @@ Different classes of systems consume identity through different interfaces:
 - No consuming system manages its own user lifecycle
 
 This model ensures consistent identity enforcement across both modern and legacy protocols.
-
-
-
-© 2026 Nidax / True North

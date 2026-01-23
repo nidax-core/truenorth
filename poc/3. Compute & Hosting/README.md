@@ -57,3 +57,4 @@ Draft (theory-only). This PoC is currently documentation-only and has not been v
 - Decisions: [decisions.md](./decisions.md)
 - Pitfalls: [pitfalls.md](./pitfalls.md)
 
+2026 Nidax / True North
