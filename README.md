@@ -28,10 +28,26 @@ True North explores a different approach:
 The `/poc` directory contains focused Proofs of Concept.
 Each PoC is intentionally scoped to validate a single architectural idea not to build a full product.
 
-The first PoC focuses on **central identity and access**:
-- one identity;
-- strong authentication at the boundary;
-- smooth, policy-driven access to multiple services.
+### PoC overview
+
+Each domain can have one of the following status and is mentioned in each README file of the domain:
+
+1. Draft (theory)
+2. In progress
+3. Validated in lab
+4. Validated in production.
+
+
+| Domain | Name | Status | Link |
+|---:|---|---|---|
+| 1 | Identity & Access | Validated in lab | [PoC README](./poc/1-%20Identity%20%26%20Access/README.md) |
+| 2 | Collaboration & Productivity | Validated in lab | [PoC README](./poc/2-%20Collaboration%20%26%20Productivity/README.md) |
+| 3 | Compute & Hosting | Draft (theory-only) | [PoC README](./poc/3.%20Compute%20%26%20Hosting/README.md) |
+| 4 | Security, Observability & Compliance | Draft (theory-only) | [PoC README](./poc/4.%20Security,%20Observability%20%26%20Compliance/README.md) |
+| 5 | Configuration & Automation | Draft (theory-only) | [PoC README](./poc/5.%20Configuration%20%26%20Automation/README.md) |
+| 6 | Integration Layer | Draft (theory-only) | [PoC README](./poc/6.%20Integration%20Layer/README.md) |
+| 7 | Operations & Support | Draft (theory-only) | [PoC README](./poc/7.%20Operations%20%26%20Support/README.md) |
+| 8 | Analytics & Insight | Draft (theory-only) | [PoC README](./poc/8.%20Analytics%20%26%20Insight/README.md) |
 
 ## License and intent
 
@@ -49,13 +65,5 @@ Any commercial activity should respect that spirit.
 
 This project is under active exploration.
 Expect clarity before speed and structure before scale.
-
-Each domain can have one of the following status and is mentioned in each README file of the domain:
-
-1. Draft (theory)
-2. In progress
-3. Validated in lab
-4. Validated in production.
-
 
 2026 Nidax / True North
