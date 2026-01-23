@@ -47,6 +47,16 @@ Secrets are never configuration and never documentation.
 
 ---
 
+## Status
+Draft (theory-only). This PoC is currently documentation-only and has not been validated in practice yet.
+
+## Validation
+- [ ] Lab validation performed
+- [ ] Runbooks tested end-to-end
+- [ ] Evidence captured (commands/logs/screens)
+
+---
+
 ## Documents
 
 - Goal: [goal.md](./goal.md)
