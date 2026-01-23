@@ -54,8 +54,23 @@ The focus is on architectural correctness, not production readiness.
 
 ---
 
-## Known pitfalls
+## Status
+Validated in lab
 
-See [pitfalls.md](./pitfalls.md) for real-world issues encountered and lessons learned during this PoC.
+## Validation
+- [X] Lab validation performed
+- [X] Runbooks tested end-to-end
+- [X] Evidence captured (commands/logs/screens)
 
-© 2026 Nidax / True North
+---
+
+## Documents
+
+- Goal: [goal.md](./goal.md)
+- Scope: [scope.md](./scope.md)
+- Architecture: [architecture.md](./architecture.md)
+- Assumptions: [assumptions.md](./assumptions.md)
+- Decisions: [decisions.md](./decisions.md)
+- Pitfalls: [pitfalls.md](./pitfalls.md)
+
+
