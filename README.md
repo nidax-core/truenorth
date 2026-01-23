@@ -50,4 +50,12 @@ Any commercial activity should respect that spirit.
 This project is under active exploration.
 Expect clarity before speed and structure before scale.
 
-© 2026 Nidax / True North
+Each domain can have one of the following status and is mentioned in each README file of the domain:
+
+1. Draft (theory)
+2. In progress
+3. Validated in lab
+4. Validated in production.
+
+
+2026 Nidax / True North
