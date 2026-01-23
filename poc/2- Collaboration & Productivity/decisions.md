@@ -158,10 +158,14 @@ Email delivery is treated as an external trust domain with clearly defined bound
 True North does not mandate a single email hosting model, but defines a decision matrix and integration constraints.
 
 **Rationale**
-- Email is critical infrastructure with high operational and security cost
-- Full self-hosting often introduces disproportionate complexity and risk
-- Different organizations have different trust, compliance and capacity constraints
-- Long-term autonomy is preserved through clear boundaries, not ideological purity
+- Email is critical infrastructure with high operational, security and deliverability cost.
+- For most organizations, a managed (preferably EU) provider reduces risk and operational burden while still meeting True North goals — provided boundaries, standards and an exit path are explicit.
+- Some organizations require full control for threat model, compliance, or sovereignty reasons. In those cases, fully self-hosting is acceptable if the organization has (or is willing to hire) the necessary expertise and accepts the operational responsibility.
+- Long-term autonomy is preserved through clear trust boundaries and open protocols, not by mandating a single hosting model.
+
+**Guidance**
+- Default: managed EU provider (lowest operational risk for most teams)
+- Exceptional: fully self-hosted when control requirements justify the burden
 
 **Accepted delivery models**
 
@@ -184,9 +188,10 @@ True North does not mandate a single email hosting model, but defines a decision
 - Feature parity with hyperscaler mail platforms is not a goal
 
 **Implication**
-- Email is interoperable, replaceable, and governed — but not reinvented
+- Email is interoperable, replaceable, and governed but not reinvented
 - The workspace may surface mail functionality without owning mail delivery
 - Responsibility boundaries between Identity, Workspace and Mail are explicit
+- Reference implementation note available: self-hosted-mail.md (non-normative)
 
 
 ## Summary
@@ -198,3 +203,4 @@ These decisions ensure that the Collaboration & Productivity domain remains:
 - Resilient to vendor or ecosystem changes
 
 They are intentionally conservative and prioritize long-term operational clarity over feature density.
+

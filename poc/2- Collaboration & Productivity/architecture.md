@@ -139,7 +139,8 @@ Mail infrastructure does not define password policy or MFA logic independently.
 6. Workspace may surface mail without intercepting delivery
 
 Email remains interoperable, auditable and replaceable across providers
-
+Self-hosted mail is allowed as an exceptional model; details live in self-hosted-mail.md
+Mail auth goes direct to LDAP; Keycloak stays for web SSO”
 
 ### Chat and team collaboration
 Chat tools provide asynchronous communication and team coordination.

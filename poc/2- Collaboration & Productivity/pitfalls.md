@@ -6,7 +6,7 @@ The goal is not to document bugs, but to prevent **conceptual mistakes** that le
 
 ---
 
-## P1 — Confusing ONLYOFFICE session tokens with the JWT secret
+## P1 - Confusing ONLYOFFICE session tokens with the JWT secret
 
 **Symptom**  
 After restarting the ONLYOFFICE document server, document editing stops working and error messages reference invalid or malformed tokens.
