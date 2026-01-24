@@ -56,5 +56,6 @@ In progress
 - Architecture: [architecture.md](./architecture.md)
 - Decisions: [decisions.md](./decisions.md)
 - Pitfalls: [pitfalls.md](./pitfalls.md)
+- Lab runbook (k3s on libvirt): [compute-hosting-k3s-libvirt-lab.md](../../docs/runbooks/compute-hosting-k3s-libvirt-lab.md)
 
 2026 Nidax / True North

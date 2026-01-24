@@ -71,6 +71,7 @@ Validated in lab
 - Assumptions: [assumptions.md](./assumptions.md)
 - Decisions: [decisions.md](./decisions.md)
 - Pitfalls: [pitfalls.md](./pitfalls.md)
+- Runbook — Validate Domain 1 lab: [docs/runbooks/identity-access-lab-validation.md](../../docs/runbooks/identity-access-lab-validation.md)
 - Directory policy attributes (LDAP): [directory-policy-attributes.md](./directory-policy-attributes.md)
 
 2026 Nidax / True North

@@ -144,6 +144,7 @@ Validated in lab
 - Architecture: [architecture.md](./architecture.md)
 - Decisions: [decisions.md](./decisions.md)
 - Pitfalls: [pitfalls.md](./pitfalls.md)
+- Runbook — Validate Domain 2 lab: [docs/runbooks/collaboration-productivity-lab-validation.md](../../docs/runbooks/collaboration-productivity-lab-validation.md)
 - Self Hosting Mail: [self-hosted-mail](./self-hosted-mail.md)
 
 2026 Nidax / True North
