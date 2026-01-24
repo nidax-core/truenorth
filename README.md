@@ -15,6 +15,16 @@ It is intentionally lightweight and iterative.
 - Mission: [docs/mission.md](./docs/mission.md)
 - Vision: [docs/vision.md](./docs/vision.md)
 - Open standards: [docs/open-standards.md](./docs/open-standards.md)
+- Portfolio & evidence index: [docs/portfolio.md](./docs/portfolio.md)
+
+## Runbooks
+
+Operational procedures live in `docs/runbooks/`.
+
+- Domain 1 lab validation: [docs/runbooks/identity-access-lab-validation.md](./docs/runbooks/identity-access-lab-validation.md)
+- Domain 2 lab validation: [docs/runbooks/collaboration-productivity-lab-validation.md](./docs/runbooks/collaboration-productivity-lab-validation.md)
+- Nextcloud + ONLYOFFICE JWT mismatch: [docs/runbooks/nextcloud-onlyoffice-jwt-mismatch.md](./docs/runbooks/nextcloud-onlyoffice-jwt-mismatch.md)
+- Domain 3 lab bootstrap (libvirt + k3s): [docs/runbooks/compute-hosting-k3s-libvirt-lab.md](./docs/runbooks/compute-hosting-k3s-libvirt-lab.md)
 
 ## Why True North
 
