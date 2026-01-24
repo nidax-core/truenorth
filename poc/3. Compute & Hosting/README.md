@@ -40,7 +40,7 @@ Backups without regular restore tests are not a capability.
 ---
 
 ## Status
-Draft (theory-only). This PoC is currently documentation-only and has not been validated in practice yet.
+In progress
 
 ## Validation
 - [ ] Lab validation performed
