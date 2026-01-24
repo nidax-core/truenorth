@@ -4,7 +4,7 @@
 Validated in lab
 
 ## Owner
-Collaboration / Platform
+Collaboration & Productivity
 
 ## Last reviewed
 2026-01-24
@@ -32,10 +32,10 @@ Restore document editing when the Nextcloud ↔ ONLYOFFICE integration fails due
 ---
 
 ## Inputs
-- Environment: lab / prod
-- Nextcloud URL:
-- ONLYOFFICE Document Server URL:
-- Incident ID / ticket:
+- Environment: lab / production
+- Nextcloud URL: 
+- ONLYOFFICE Document Server URL: 
+- Incident ID / ticket: 
 
 ## Evidence to collect (before changes)
 - Screenshot / exact error text from the user
