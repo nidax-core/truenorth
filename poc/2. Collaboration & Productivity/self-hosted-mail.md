@@ -51,10 +51,14 @@ Mail sending is controlled via a single sender restriction:
 
 Policy model:
 
-- LDAP stores explicit mail attributes (e.g., `mailSendAllowed`, `mailAccountStatus`).
+- LDAP stores explicit mail attributes (e.g., `tnMailSendAllowed`, `tnAccountStatus`).
+  (Some labs may use non-namespaced equivalents like `mailSendAllowed` / `mailAccountStatus`.)
 - If the LDAP lookup matches “send disabled”, Postfix issues a deterministic SMTP reject.
 - If the LDAP lookup returns no match, sending is permitted.
 - Policy changes in LDAP take effect immediately for new SMTP transactions.
+
+Note: the **definition** and **management** of these attributes (schema, LDIF examples, ownership) belongs in the Identity domain:
+- `poc/1. Identity & Access/directory-policy-attributes.md`
 
 ### Authentication vs authorization
 
@@ -95,7 +99,7 @@ Policy changes are made in LDAP and enforced by Postfix at the SMTP boundary.
 
 ### Verifiable outcome
 
-- Toggling a single LDAP attribute (e.g., `mailSendAllowed`) enables/disables sending immediately.
+- Toggling a single LDAP attribute (e.g., `tnMailSendAllowed`) enables/disables sending immediately.
 - Blocked sends return consistent SMTP status codes (e.g., `554 5.7.1`).
 - Behavior is reproducible (e.g., with `swaks`).
 
