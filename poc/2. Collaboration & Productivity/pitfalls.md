@@ -43,3 +43,36 @@ Confusing session tokens with integration secrets leads to unnecessary manual ch
 > Session tokens are runtime artifacts.
 
 Only the former belongs in documentation and configuration management.
+
+---
+
+## P2 - JWT secret/header mismatch between Nextcloud and ONLYOFFICE
+
+**Symptom**  
+Users can open the file list, but opening/editing documents fails.
+The editor may show errors like:
+- "The document security token is not correctly formed"
+
+**Root cause**  
+Nextcloud and the ONLYOFFICE Document Server must share the *same* static JWT integration settings.
+If either side is configured with a different value (or different header name), the Document Server rejects requests.
+
+This typically happens due to:
+- configuration drift (only one side was updated);
+- environment variables changed on the Document Server but not in Nextcloud;
+- header name mismatch (e.g. `Authorization` vs `JWT`), depending on the chosen deployment defaults.
+
+**Fix**  
+Align the JWT settings on both sides:
+- Nextcloud ONLYOFFICE app: JWT secret (and header name if configurable)
+- ONLYOFFICE Document Server: JWT secret and header name
+
+Then restart the Document Server (and, if applicable, the reverse proxy) and re-test by opening a document.
+
+**Prevention**  
+Treat the JWT secret as managed configuration:
+- generate a strong secret and keep it stable;
+- store it in configuration management / secrets management;
+- document rotation steps explicitly (avoid “change it in the UI and hope”).
+
+See: `docs/runbooks/nextcloud-onlyoffice-jwt-mismatch.md`
