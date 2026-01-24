@@ -95,7 +95,7 @@ Avoid implementing policy logic in `master.cf`; it becomes brittle and difficult
 
 Policy changes are made in LDAP and enforced by Postfix at the SMTP boundary.
 
-![LDAP-driven mail sending control flow](image.png)
+![LDAP-driven mail sending control flow](sending_policy.png)
 
 ### Verifiable outcome
 
