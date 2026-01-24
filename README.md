@@ -7,8 +7,14 @@ It is an open human-scale framework for secure digital collaboration.
 It focuses on strong identity, clear boundaries and vendor-neutral architecture.
 So organizations can run their core digital services with confidence and autonomy.
 
-This repository is the home of the **True North vision, principles, and proofs of concept**.
+This repository is the home of the **True North mission, vision, principles, and proofs of concept**.
 It is intentionally lightweight and iterative.
+
+## Mission and principles
+
+- Mission: [docs/mission.md](./docs/mission.md)
+- Vision: [docs/vision.md](./docs/vision.md)
+- Open standards: [docs/open-standards.md](./docs/open-standards.md)
 
 ## Why True North
 
