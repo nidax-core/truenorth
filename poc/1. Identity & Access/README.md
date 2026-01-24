@@ -59,7 +59,6 @@ Validated in lab
 
 ## Validation
 - [X] Lab validation performed
-- [X] Runbooks tested end-to-end
 - [X] Evidence captured (commands/logs/screens)
 
 ---
