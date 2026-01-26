@@ -107,9 +107,31 @@ NICs:
 OS baseline on all VMs:
 - Install `qemu-guest-agent`
 - Install and enable `chrony`
+- Install `curl` (not always present on minimal Debian 12)
 - Disable swap (Kubernetes requirement)
 
 ### 3) Assign stable IPs on the workload network
+
+Important (routing + DNS on dual-NIC Debian 12):
+- Keep the **default route + DNS** on the management NIC (so installs can reach the internet and resolve names).
+- Keep the workload NIC **static** and avoid setting DNS or a gateway there (keeps the boundary clean and avoids confusing routing/DNS issues).
+
+Example (if your Debian 12 template uses ifupdown at `/etc/network/interfaces`):
+
+```text
+# Management network (default route + DNS)
+allow-hotplug enp1s0
+iface enp1s0 inet dhcp
+  dns-nameservers 1.1.1.1 8.8.8.8
+  metric 100
+
+# Workload network (NO DNS, NO gateway)
+auto enp7s0
+iface enp7s0 inet static
+  address 10.10.10.13
+  netmask 255.255.255.0
+  metric 200
+```
 
 Example plan:
 - `tn-mgmt`: `10.10.10.10`
@@ -126,6 +148,9 @@ Expected outcome:
 On `tn-k3s-server`:
 
 ```bash
+sudo apt update
+sudo apt install -y curl
+
 curl -sfL https://get.k3s.io | sudo sh -s - server \
   --node-ip 10.10.10.11 \
   --advertise-address 10.10.10.11
@@ -141,6 +166,9 @@ Expected outcome:
 On each agent, set node IP to the workload NIC:
 
 ```bash
+sudo apt update
+sudo apt install -y curl
+
 curl -sfL https://get.k3s.io | \
   K3S_URL=https://10.10.10.11:6443 \
   K3S_TOKEN=<TOKEN_FROM_SERVER> \
@@ -155,6 +183,25 @@ Verify from `tn-mgmt`:
 kubectl get nodes -o wide
 kubectl get pods -A
 ```
+
+Pitfall (agent join): if `k3s-agent` does not start and `/etc/systemd/system/k3s-agent.service.env` is empty, the install did not persist `K3S_URL`/`K3S_TOKEN`.
+
+Fix on the agent:
+
+```bash
+sudo tee /etc/systemd/system/k3s-agent.service.env >/dev/null <<'EOF'
+K3S_URL=https://10.10.10.11:6443
+K3S_TOKEN=<TOKEN_FROM_SERVER>
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl restart k3s-agent
+
+sudo systemctl status k3s-agent --no-pager -l
+sudo journalctl -u k3s-agent -b --no-pager | tail -n 200
+```
+
+Preferred fix (more repeatable): rerun the installer command above with `K3S_URL=...` and `K3S_TOKEN=...` set inline so the service env file is generated correctly.
 
 ### 6) Provide dynamic PVs via NFS (simple, boring, portable)
 
@@ -172,6 +219,13 @@ sudo exportfs -ra
 On `tn-mgmt` (Helm example):
 
 ```bash
+sudo apt update
+sudo apt install -y curl
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+chmod 700 get_helm.sh
+sudo ./get_helm.sh
+
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 helm repo update
 
