@@ -43,12 +43,25 @@ Each PoC is intentionally scoped to validate a single architectural idea not to 
 
 ### PoC overview
 
-Each domain can have one of the following status and is mentioned in each README file of the domain:
+Each domain progresses through explicit validation stages.
+These stages distinguish technical controls from operational proof.
 
-1. Draft (theory)
-2. In progress
-3. Validated in lab
-4. Validated in production.
+#### Draft (theory-only)
+Architecture, rationale and design assumptions.
+
+#### Lab-validated
+Functionality works in a controlled environment and is reproducible.
+
+#### Production-validated
+The domain runs in a real environment with real users or workloads.
+
+#### Security-hardened
+Security controls are explicitly implemented and reviewed
+(identity boundaries, logging, threat model, least privilege).
+
+#### Audit-ready
+The system can demonstrate its security and reliability through evidence:
+runbooks, restore tests, logs, documented procedures and repeatable outcomes.
 
 
 | Domain | Name | Status | Link |
