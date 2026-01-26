@@ -1,5 +1,7 @@
 # TrueNorth
-True North is an initiative by Nidax.
+This repository is a personal, non-commercial exploration and documentation project.
+“Nidax” is used solely as a personal namespace to group ideas and projects, not as a company or commercial entity.
+It is not a product, consultancy or active business offering and is maintained alongside regular employment.
 
 The name "True North" is used as a project name and concept. 
 Use of the name does not imply permission for branding or commercial use.
